@@ -1,5 +1,5 @@
 {% set name = "vp4jl" %}
-{% set version = "0.1.5" %}
+{% set version = "0.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vp4jl-{{ version }}.tar.gz
-  sha256: 7542e05d5bb4b076ce6a47172f73bb60d051e773d83a1fe2c1351ae2e4d2affe
+  sha256: bd2b691f9571b320324d19ff247e1ef44c9251bd93c1a946889dad5f6d70cbe8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
