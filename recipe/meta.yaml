@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/vp4jl-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/vp4jl-{{ version }}.tar.gz
   sha256: bd2b691f9571b320324d19ff247e1ef44c9251bd93c1a946889dad5f6d70cbe8
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - hatchling >=1.5.0
     - jupyterlab >=4.0.0b0,<5
     - hatch-nodejs-version
     - hatch-jupyter-builder
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jupyter_server >=2.0.1,<3
 
 test:
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/Max-ChenFei/VisualProgramming4JupyterLab
